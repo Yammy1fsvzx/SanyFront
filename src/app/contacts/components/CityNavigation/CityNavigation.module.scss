@@ -1,0 +1,25 @@
+.cityNavigation {
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+
+        li {
+            font-family: var(--font-rubik);
+            font-weight: 400;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #777;
+                border-bottom: 1px solid #777;
+            }
+
+            &.active {
+                color: #777;
+                border-bottom: 1px solid #777;
+            }
+        }
+    }
+}

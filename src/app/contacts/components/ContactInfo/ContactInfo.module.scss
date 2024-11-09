@@ -1,0 +1,118 @@
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 50px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;    
+        gap: 20px;    
+    }
+}
+
+.iconSize {
+    font-size: 23px;
+    flex-shrink: 0;
+}
+
+.infoColumn {
+    flex: 1;
+    margin: 0 20px;
+    min-width: 200px;
+    text-align: left;
+    font-family: var(--font-rubik);
+}
+
+.sectionHeading {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9a9ea6;
+    font-weight: 300;
+    margin-bottom: 16px;
+
+    svg {
+        width: 23px;
+        height: 23px;
+        color: #9a9ea6;
+    }
+}
+
+.line {
+    margin: 32px 0;
+    color: #d2d5de;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #d2d5de;
+}
+
+.infoParagraph, .parkingInfo, .phoneNumber {
+    color: rgba(0, 0, 0, .87);
+    line-height: 1.5;
+    font-weight: 300;
+    font-family: var(--font-rubik);
+    font-size: 18px;
+}
+
+.phoneWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.phoneContainer {
+    margin-bottom: 40px;
+    text-align: left;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-family: var(--font-rubik);
+    
+
+    .iconContainer {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            width: 21px;
+            height: 21px;
+            color: #9a9ea6;
+            transition: color 0.4s;
+
+            &:hover {
+                color: #444;
+            }
+        }
+    }
+}
+
+.telegramText {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    background-color: #fff;
+
+    a {
+        color: #9a9ea6;
+        transition: color 0.5s;
+        display: flex;
+
+        svg {
+            width: 23px;
+            height: 23px;
+            color: #9a9ea6;
+            margin-right: 10px;
+        }
+
+        &:hover {
+            color: #222;
+        }
+    }
+}

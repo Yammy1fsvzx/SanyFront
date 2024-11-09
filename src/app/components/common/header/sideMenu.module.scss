@@ -1,0 +1,113 @@
+.sideMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 600px;
+    max-width: 80%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    transform: translateX(-100%);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px !important;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .sideMenuH {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #333;
+    }
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    .closeButton {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+        &:hover {
+            color: #888;
+        }
+    }
+}
+
+.nav {
+    padding: 100px 20px 0 20px;
+
+    h2 {
+        font-family: var(--font-rubik);
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 0 10px 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin: 25px 15px;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+    
+        &:hover {
+            color: #888;
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+    z-index: 900;
+    display: block;
+}
+
+html, body {
+    .no-scroll {
+        overflow: hidden;
+    }
+}

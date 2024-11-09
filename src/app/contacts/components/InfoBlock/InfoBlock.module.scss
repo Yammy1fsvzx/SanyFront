@@ -1,0 +1,51 @@
+.textExpansion {
+    margin-top: 20px;
+    font-family: var(--font-rubik);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.textExpansionItem {
+    margin-bottom: 20px;
+}
+
+.vExpansionPanelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 0;
+    font-family: var(--font-mulish);
+    font-weight: 400;
+    font-size: clamp(20px, 3vmin, 24px);
+    transition: color 0.3s;
+    
+
+    &:hover {
+        color: #666;
+    }
+
+    &.active {
+        color: #666;
+    }
+}
+
+.vExpansionPanelHeader__icon {
+    transition: transform 0.3s ease;
+}
+
+.textContentContainer {
+    overflow: hidden;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.textContent {
+    padding: 16px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #666;
+}

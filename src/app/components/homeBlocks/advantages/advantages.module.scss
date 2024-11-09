@@ -1,0 +1,72 @@
+.advantages {
+    text-align: center;
+    margin: 100px 0;
+
+    & .title {
+        margin-bottom: 3rem;
+        color: #2c2e35;
+        font-family: "Mulish" !important;
+        font-size: clamp(28px, 4vmin, 36px);
+        font-weight: 600 !important;
+        letter-spacing: 0;
+        overflow: visible;
+        text-transform: uppercase;
+        white-space: normal;
+        width: 100%;
+    }
+
+    & .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        gap: 1.5rem;
+        padding: 0;
+
+        justify-content: center;
+        margin: 0 auto;
+        align-items: start;
+    }
+
+    & .card {
+        border-radius: 8px;
+        padding: 1rem;
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        max-width: calc(100% - 1.5rem);
+        box-sizing: border-box;
+        
+
+        & .image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        & .cardTitle {
+            font-family: "Mulish" !important;
+            font-weight: 400 !important;
+            font-size: clamp(18px,3.5vmin,22px);
+            color: rgba(44, 46, 53, 1);
+            text-align: center;
+            letter-spacing: -.2px;
+            line-height: 1.2;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        & .cardText {
+            font-family: "Mulish" !important;
+            font-weight: 400 !important;
+            font-size: clamp(15px,2vw + 1px,18px);
+            color: rgba(105, 114, 120, 1);
+            text-align: center;
+            line-height: 1.3;
+            display: block;
+            margin-top: 5px;
+        }
+    }
+}

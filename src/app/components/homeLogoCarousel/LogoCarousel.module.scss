@@ -1,0 +1,39 @@
+.carousel {
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #f3f3f3;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &:before {
+        left: 0;
+        background: linear-gradient(to right, #f3f3f3 0%, rgba(243, 243, 243, 0) 100%);
+    }
+
+    &:after {
+        right: 0;
+        background: linear-gradient(to left, #f3f3f3 0%, rgba(243, 243, 243, 0) 100%);
+    }
+
+    .logo {
+        width: auto;
+        height: 130px;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

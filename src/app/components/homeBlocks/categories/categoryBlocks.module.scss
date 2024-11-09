@@ -1,0 +1,40 @@
+.categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin: 100px 0;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.cardContainer {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    background: none;
+
+    .title {
+        white-space: normal;
+        font-weight: 300;
+        font-size: clamp(18px, 3.5vmin, 22px);
+        color: rgba(11, 11, 11, 1);
+        text-align: center;
+    }
+
+    &:hover {
+        .title {
+            color: #666; 
+        }
+    }
+}
+
+.cardImage {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.2s;
+    height: fit-content;
+    pointer-events: none;
+}

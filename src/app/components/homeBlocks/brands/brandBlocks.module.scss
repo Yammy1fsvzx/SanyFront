@@ -1,0 +1,58 @@
+.brandsContainer {
+    margin: 50px 0;
+
+    .header {
+        font-family: 'Mulish' !important;
+        font-weight: 600 !important;
+        font-size: clamp(28px, 4vmin, 36px);
+        color: rgba(44, 46, 53, 1);
+        text-transform: uppercase;
+        letter-spacing: 0;
+        line-height: 54px;
+        margin-bottom: 3rem;
+        white-space: normal;
+        overflow: initial;
+        text-overflow: initial;
+    }
+
+    .brandsGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .cardContainer {
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        background: none;
+
+        .title {
+            white-space: normal;
+            font-family: 'Rubik' !important;
+            font-weight: 300 !important;
+            font-size: clamp(18px, 3.5vmin, 22px);
+            color: rgba(11, 11, 11, 1);
+            text-align: center;
+        }
+
+        &:hover {
+            .title {
+                color: #666; 
+            }
+        }
+    }
+
+    .cardImage {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: transform 0.2s;
+        height: fit-content;
+        pointer-events: none;
+    }
+}

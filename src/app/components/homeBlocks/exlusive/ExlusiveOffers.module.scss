@@ -1,0 +1,214 @@
+$primary-color: #0070f3;
+$card-bg: #ffffff;
+$card-shadow: rgba(0, 0, 0, 0.1);
+$border-radius: 20px;
+
+.watchlistContainer {
+  margin: 100px 0;
+  padding: 20px 0;
+  padding-bottom: 50px;
+  background-color: #f3f3f3;
+
+  .watchHeader {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin-bottom: 42px;
+
+    @media (max-width: 768px) {
+      padding: 0 10px;
+    }
+
+    h2 {
+      font-family: "Mulish" !important;
+      font-weight: 600 !important;
+      font-size: clamp(28px, 4vmin, 36px);
+      color: rgba(44, 46, 53, 1);
+      text-transform: uppercase;
+      letter-spacing: 0;
+      white-space: normal;
+      padding: 0;
+      overflow: initial;
+      text-overflow: initial;
+    }
+  }
+
+  .cardContainer {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 25px;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, #f3f3f3d2 , rgba(255, 255, 255, 0));
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, #f3f3f3, rgba(255, 255, 255, 0));
+    }
+
+    .cardWrapper {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+      padding: 10px 0;
+    }
+
+    .card {
+      width: 400px;
+      height: 400px;
+      background-color: $card-bg;
+      border-radius: $border-radius;
+      box-shadow: 0 4px 8px $card-shadow;
+      position: relative;
+      cursor: pointer;
+
+      .cardContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        padding: 15px;
+        font-size: 21px;
+
+        .image {
+          width: 40%;
+          height: auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          object-fit: cover;
+        }
+
+        .reference {
+          position: absolute;
+          font-weight: 400 !important;
+          top: 20px;
+          left: 20px;
+          z-index: 1;
+          color: #000000bd;
+        }
+
+        .model {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          z-index: 1;
+          color: #a1a1a1;
+        }
+
+        .link {
+          font-size: 18px;
+          color: #515151;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 1;
+          border-radius: 50%;
+          border: 1px solid #88888834;
+          display: flex;
+          padding: 5px;
+        }
+
+        .price {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          z-index: 1;
+          color: #525252;
+        }
+      }
+    }
+  }
+
+  .browseMore {
+    border-radius: 4px;
+    border: none;
+    padding: 15px 30px;
+    width: auto;
+    transition: all 0.8s;
+    background: inherit;
+    cursor: pointer;
+    border: 1px solid #5252525b;
+    border-radius: 30px;
+
+    span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.8s;
+      font-size: 1.1rem;
+      white-space: nowrap;
+
+
+      &::after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.8s;
+      }
+    }
+  }
+
+  .browseMore:hover span {
+    padding-right: 25px;
+
+    &::after {
+      opacity: 1;
+      right: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .watchlistContainer {
+    padding: 20px 10px;
+
+    .watchHeader {
+      margin-bottom: 10px;
+    }
+
+    .cardContainer {
+    
+        &::before,
+        &::after {
+          width: 10px; 
+        }
+
+      .card {
+        width: 400px;
+        height: 400px;
+
+        .image {
+          width: 40% !important;
+        }
+
+        .reference,
+        .model,
+        .link,
+        .price {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

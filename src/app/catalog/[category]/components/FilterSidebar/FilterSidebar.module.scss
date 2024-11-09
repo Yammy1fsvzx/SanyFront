@@ -1,0 +1,205 @@
+$text-color: #444444;
+$hover-color: #666666;
+$border-color: #6666665d;
+$toggle-icon-size: 18px;
+$icon-size: 18px;
+
+.filtersWrapper {
+    padding: 24px;
+    width: 265px;
+    height: 100%;
+    min-height: 400px;
+    overflow-y: auto;
+    font-size: 18px;
+    color: $text-color;
+    background-color: #fff;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 300;
+
+    svg {
+        width: 18px !important;
+    }
+
+    h3.filtersTitle {
+        display: flex;
+        margin-bottom: 34px;
+        border-bottom: 1px solid #e7e7e7;
+        font-weight: 400 !important;
+        height: 55px;
+        align-items: flex-start;
+        padding: 8px;
+
+        span {
+            font-family: 'Mulish' !important;
+            font-weight: 600 !important;
+            font-size: clamp(15px, 2vw + 1px, 18px);
+            color: rgba(44, 46, 53, 1);
+            letter-spacing: -.4px;
+        }
+
+        button.resetFilter {
+            background-color: transparent;
+            border: none;
+            color: $text-color;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            transition: color 0.4s ease, transform 0.4s ease;
+
+            &.rotated {
+                transform: rotate(180deg);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            svg {
+                margin-right: 5px;
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                width: $icon-size;
+                height: $icon-size;
+            }
+
+            &:hover {
+                color: $hover-color;
+
+                svg {
+                    transform: rotate(-360deg);
+                }
+            }
+        }
+    }
+
+    .filterGroup {
+        margin-bottom: 10px;
+        padding: 0 10px;
+        line-height: 21px;
+
+        h4.filterGroupTitle {
+            font-weight: 400 !important;
+            color: rgba(11, 11, 11, 1);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 21px;
+            transition: color 0.4s ease;
+
+            &:hover {
+                color: $hover-color;
+            }
+
+            .toggle-icon {
+                font-size: $toggle-icon-size;
+                font-weight: bold !important;
+                width: $icon-size;
+                height: $icon-size;
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+
+        .filterContent {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+
+            font-size: 16px;
+            line-height: 21px;
+
+            &.active {
+                max-height: 1200px;
+                transition: max-height 0.5s ease-in-out;
+            }
+        }
+    }
+
+    .priceRange {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 1.2em 0;
+
+        input {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+
+            &:focus {
+                border-color: $text-color;
+            }
+        }
+
+        .currency {
+            color: $text-color;
+        }
+    }
+
+    .filterOptions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 1.2em 0;
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: $text-color;
+            font-size: 16px;
+            line-height: 21px;
+            cursor: pointer;
+            transition: color 0.4s ease;
+
+            &:hover {
+                color: $hover-color;
+            }
+
+            input[type='checkbox'] {
+                appearance: none;
+                width: $icon-size;
+                height: $icon-size;
+                border: 2px solid $border-color;
+                cursor: pointer;
+                position: relative;
+                transition: background-color 0.4s ease, border-color 0.4s ease;
+                border-radius: 50%;
+                color: #b4b4b6;
+
+                &:checked {
+                    background-color: $text-color;
+                    border-color: $text-color;
+
+                    &::before {
+                        content: '\2713';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: #ffffff;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 15px;
+        width: 100%;
+        max-height: none;
+
+        .priceRange {
+            input {
+                width: 70px;
+            }
+        }
+
+        display: none;
+    }
+}

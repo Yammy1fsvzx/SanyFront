@@ -1,0 +1,201 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 60px 0 20px;
+    font-family: 'Rubik';
+    font-weight: 300;
+    font-size: clamp(15px, 2vw + 1px, 18px);
+    white-space: normal;
+
+    .footerContainer {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footerSection {
+        flex: 1 1 33%;
+        margin-right: 20px;
+        background-color: #000 !important;
+
+        &:last-child {
+            margin-right: 0;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    }
+
+    .footerLogo {
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto 20px;
+        height: auto;
+        display: block;
+    }
+
+    .footerLinks {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 20px;
+
+            a {
+                text-decoration: none;
+                transition: color 0.6s ease;
+                font-weight: 300;
+                font-size: clamp(15px, 2vw + 1px, 18px);
+                color: #fff;
+                white-space: normal;
+                color: rgba(105, 114, 120, 1);
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .contactInfo {
+        margin-bottom: 20px;
+
+        h3 {
+            margin-bottom: 10px;
+            font-weight: 600 !important;
+            font-size: clamp(15px, 2vw + 1px, 18px);
+            color: rgba(245, 247, 248, 1);
+            display: block;
+        }
+
+        p {
+            margin: 20px 0;
+            font-weight: 300;
+            font-size: clamp(15px, 2vw + 1px, 18px);
+            color: rgba(245, 247, 248, 1);
+            display: block;
+
+            i {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .catalogSection,
+    .servicesSection {
+        margin-bottom: 20px;
+        width: 100%;
+
+        padding: 10px;
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin: 5px 0;
+            font-family: var(--font-rubik);
+            font-weight: 600 !important;
+            font-size: clamp(15px, 2vw + 1px, 18px);
+            color: rgba(245, 247, 248, 1);
+            display: block;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            transition: color 0.6s ease;
+            font-weight: 300;
+            font-size: clamp(15px, 2vw + 1px, 18px);
+            color: rgba(245, 247, 248, 1);
+            display: block;
+
+            padding: 10px 0;
+
+            &:hover {
+                color: #ccc;
+            }
+        }
+    }
+
+    .footerBottom {
+        border-top: 1px solid #333;
+        margin-top: 30px;
+        padding-top: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .appLinks {
+        display: grid;
+        justify-content: flex-start;
+        margin: 40px 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+
+        a {
+            margin: 0;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .copyright {
+        font-size: 16px;
+        color: #999;
+        width: 100%;
+        text-align: center;
+    }
+
+    .rightSection,
+    .leftSection {
+        background-color: #000;
+    }
+
+    .leftSection {
+        max-width: 400px !important;
+    }
+
+    .centerSection {
+        padding: 10px;
+
+        svg {
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .rightSection {
+        display: flex;
+        justify-content: center;
+    }
+
+    .leftSection img {
+        max-width: 100%;
+        height: auto;
+        max-width: 400px;
+        margin-left: 0;
+    }
+
+    @media (max-width: 768px) {
+        .footerContainer {
+            flex-direction: column;
+        }
+
+        .footerSection {
+            margin-right: 0;
+            margin-bottom: 30px;
+            flex: 1 1 auto;
+            max-width: 100%;
+        }
+    }
+}

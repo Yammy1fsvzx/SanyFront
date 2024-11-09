@@ -1,0 +1,144 @@
+.searchSort {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .inputWrapper {
+        flex-grow: 1;
+        position: relative;
+        cursor: text;
+
+        .referenceInput {
+            padding: 0;
+            padding-left: 12px;
+            padding-right: 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 55px;
+            width: 100%;
+            font-size: 18px;
+            font-family: var(--font-rubik);
+            font-weight: 300;
+        }
+
+        .inputPlaceholder {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+
+            svg {
+                height: 21px;
+                margin-right: 5px;
+            }
+        }
+
+        .clearButton {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.5);
+
+            svg {
+                height: 21px;
+                width: 21px;
+            }
+
+            &:hover {
+                color: rgba(0, 0, 0, 0.8);
+            }
+        }
+    }
+
+    .sortContainer {
+        position: relative;
+        height: 55px;
+
+        box-sizing: border-box;
+        outline: none;
+        font-family: Rubik, sans-serif;
+        font-weight: 300;
+
+        .sortIcon {
+            display: flex;
+            margin-right: 5px;
+        }
+
+        .selected {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            border-radius: 0 5px 5px 0;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 55px;
+
+            box-sizing: border-box;
+            outline: none;
+            font-family: Rubik, sans-serif;
+            font-weight: 300;
+
+            svg {
+                margin-left: 5px;
+                transition: transform 0.3s ease;
+                height: 21px;
+            }
+
+            .placeholder {
+                color: rgba(0, 0, 0, 0.5);
+                margin-left: 5px;
+            }
+        }
+
+        .caret {
+            display: flex;
+            transition: transform 0.3s ease;
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+            &.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .dropdownItem {
+                padding: 20px 10px;
+                cursor: pointer;
+                transition: background 0.3s;
+                font-family: var(--font-rubik);
+                font-weight: 300;
+
+                &:hover {
+                    background: #f0f0f0;
+                }
+            }
+        }
+    }
+}
