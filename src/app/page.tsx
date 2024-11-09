@@ -1,5 +1,3 @@
-import Header from './components/common/header/header';
-import Footer from './components/common/footer/footer';
 import Slider from './components/homeSlider/Slider';
 import LogoCarousel from './components/homeLogoCarousel/LogoCarousel';
 import CategoryBlocks from './components/homeBlocks/categories/categoryBlocks';
