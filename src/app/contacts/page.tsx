@@ -7,8 +7,6 @@ import CityNavigation from './components/CityNavigation/CityNavigation';
 import Map from './components/Map/Map';
 import ContactInfo from './components/ContactInfo/ContactInfo';
 import FAQ from './components/InfoBlock/InfoBlock';
-import Subscribe from '../components/homeBlocks/subscribe/subscribe';
-
 import Link from 'next/link';
 
 const locationData = {
@@ -45,10 +43,6 @@ export default function ContactPage() {
             <Header title="Важная информация" />
             <FAQ textExpData={textExpData}/>
           </div>
-
-          {/* <div className={styles.subBlock}>
-            <Subscribe />
-          </div> */}
       </div>
 
     </div>

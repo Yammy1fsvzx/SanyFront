@@ -4,7 +4,6 @@ $border-color: rgb(224, 226, 230);
 $badge-background: #e0e0e0;
 $primary-color: rgba(11, 11, 11, 1);
 $secondary-color: rgba(23, 23, 23, 1);
-$font-family-main: "Rubik";
 
 .productItem {
     display: flex;
@@ -36,7 +35,7 @@ $font-family-main: "Rubik";
         p {
             margin: 0;
             font-family: 'Spectral', serif !important;
-            font-weight: 400 !important;
+            font-weight: 500 !important;
             font-size: clamp(15px, 3vmin, 24px);
             line-height: 36px;
             color: $primary-color;
@@ -173,7 +172,6 @@ $font-family-main: "Rubik";
         .refText,
         .geoText {
             margin: 0;
-            font-family: $font-family-main;
             font-weight: 300;
             font-size: clamp(12px, 2vw, 14px);
             color: $secondary-color;

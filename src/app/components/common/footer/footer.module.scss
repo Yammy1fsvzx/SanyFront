@@ -50,10 +50,9 @@
                 font-size: clamp(15px, 2vw + 1px, 18px);
                 color: #fff;
                 white-space: normal;
-                color: rgba(105, 114, 120, 1);
 
                 &:hover {
-                    color: #fff;
+                    color: rgba(105, 114, 120, 1);
                 }
             }
         }

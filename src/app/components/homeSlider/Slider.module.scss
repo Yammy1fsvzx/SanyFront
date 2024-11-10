@@ -1,36 +1,36 @@
 .slider {
     width: 100%;
-    min-height: 800px; /* Фиксированная минимальная высота */
-    height: 800px; /* Фиксированная высота */
+    min-height: 800px;
+    height: 800px;
     background-color: #fff;
 
     @media (max-width: 768px) {
-        height: 100%; /* Замените на 100% для гибкости на мобильных */
+        height: 100%;
     }
 
     img {
         pointer-events: none;
-        width: 100%; /* Убедитесь, что изображение занимает всю ширину контейнера */
-        height: auto; /* Высота по пропорциям */
+        width: 100%;
+        height: auto;
     }
 }
 
 .slide {
     display: flex;
-    height: 100%; /* Используйте 100% для гибкости */
+    height: 100%;
 
     @media (max-width: 768px) {
-        flex-direction: column; 
-        height: auto; /* Динамическая высота для мобильных */
+        flex-direction: column;
+        height: auto;
     }
 }
 
 .imageContainer {
-    flex: 1; /* Занимает равную долю пространства */
-    background-size: cover; /* Сохраняет пропорции изображения */
+    flex: 1;
+    background-size: cover;
     background-position: center;
     pointer-events: none;
-    min-height: 400px; /* Минимальная высота для смартфонов */
+    min-height: 400px;
     
     @media (max-width: 768px) {
         max-height: 400px;
@@ -39,7 +39,7 @@
 }
 
 .textContainer {
-    flex: 1; /* Занимает равную долю пространства */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,9 +91,9 @@
     align-items: center;
 
     img {
-        width: 100%; /* Изображение растягивается на всю ширину */
-        height: auto; /* Сохраняет пропорции */
-        max-height: 448px; /* Ограничение по высоте */
+        width: 100%;
+        height: auto;
+        max-height: 448px;
     }
 }
 

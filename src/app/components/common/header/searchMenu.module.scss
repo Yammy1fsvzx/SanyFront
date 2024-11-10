@@ -1,0 +1,239 @@
+.searchMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f3f3f3 !important;
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 48px 0;
+
+    .lineSeparator {
+        width: 100%;
+        height: 1px;
+        background-color: #e7e7e7;
+        margin: 32px 0;
+    }
+}
+
+.cardWrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 12px;
+
+    @media (min-width: 1264px) {
+        max-width: 1185px;
+        padding: 0;
+    }
+
+    @media (min-width: 1904px) {
+        max-width: 1785px;
+        padding: 0;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.searchHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.title {
+    font-family: 'Mulish' !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #333; /* Более мягкий темный цвет */
+    margin: 36px 0;
+    width: 100%; /* Занимает всю ширину */
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    display: block;
+    padding: 24px 0 24px 24px;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        stroke: #999;
+        width: 50px;
+        height: 50px;
+        transition: 0.2s ease;
+
+        &:hover {
+            stroke: #333;
+        }
+    }
+}
+
+.searchField {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%; /* Для всей ширины */
+    background-color: #fff;
+    border-radius: 5px; /* Более округлые углы */
+    min-height: 56px;
+    margin: 0 0 8px;
+}
+
+.selectWrapper {
+    position: relative;
+    width: fit-content;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -5px;
+        height: 30%;
+        width: 1px;
+        background-color: #999999a1;
+        transform: translateY(-50%);
+    }
+}
+
+.select {
+    display: block;
+    height: 100%;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 5px;
+    color: #171717;
+    cursor: pointer;
+    user-select: none;
+    transition: .2s ease;
+    white-space: nowrap;
+    gap: 5px;
+
+    svg {
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
+    }
+
+    span {
+        font-size: 18px;
+    }
+}
+
+// Убираем зависимость от hover для стрелочки
+.select.open svg {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    position: absolute;
+    top: 125%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 250px;
+    overflow-y: hidden;
+
+    .dropdownItem {
+        padding: 15px;
+        display: flex;
+
+        svg {
+            margin-right: 5px;
+        }
+    }
+}
+
+.dropdown div {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: #f3f3f3;
+    }
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    color: #333;
+    width: 100%;
+    background-color: transparent;
+}
+
+.searchButton {
+    width: 56px;
+    height: 56px;
+    background: #d2d5de;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 auto;
+    flex: 0 0 auto;
+    transition: .2s ease;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        color: #fff;
+    }
+
+    &:disabled {
+        background-color: #aaa;
+    }
+}
+
+
+.viewAllLink {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 32px 24px;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    border-top: 1px solid #f3f3f3;
+
+    transition: color 0.6s ease; 
+
+    &:hover {
+        color: #000;
+    }
+}

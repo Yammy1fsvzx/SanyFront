@@ -7,6 +7,8 @@ import SideMenu from './SideMenu';
 import CartMenu from './CartMenu';
 import FeatherIcon from 'feather-icons-react';
 import { motion } from 'framer-motion';
+import SearchMenu from './SearchMenu';
+import ContactPopup from './ContactPopup';
 
 const textContent = {
   language: {
@@ -57,6 +59,8 @@ const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isSideMenuOpen, setSideMenuOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
+  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isContactPopupOpen, setContactPopupOpen] = useState(false);
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
@@ -111,11 +115,11 @@ const Header: React.FC = () => {
   };
 
   const handleContactClick = () => {
-    alert("Not Found : 404");
+    setContactPopupOpen(true); // Открыть ContactPopup
   };
 
   const handleSearchClick = () => {
-    alert("Not Found : 404");
+    setSearchOpen(true);
   };
 
   const handleCartClick = () => {
@@ -126,6 +130,14 @@ const Header: React.FC = () => {
     setCartOpen(false);
   };
 
+  const closeSearchMenu = () => {
+    setSearchOpen(false);
+  };
+
+  const closeContactPopup = () => {
+    setContactPopupOpen(false);
+  };
+
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 768);
   };
@@ -133,7 +145,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -149,10 +161,10 @@ const Header: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <div className={styles.dropdown}
-               onMouseEnter={() => setLanguageOpen(true)}
-               onMouseLeave={() => setLanguageOpen(false)}>
-            <div 
-              className={styles.selected} 
+            onMouseEnter={() => setLanguageOpen(true)}
+            onMouseLeave={() => setLanguageOpen(false)}>
+            <div
+              className={styles.selected}
               onClick={() => setLanguageOpen(!isLanguageOpen)}
             >
               {textContent.language.selected[language]}
@@ -170,12 +182,13 @@ const Header: React.FC = () => {
               ))}
             </motion.div>
           </div>
+
           <div className={styles.dropdown}
-               onMouseEnter={() => setCurrencyOpen(true)}
-               onMouseLeave={() => setCurrencyOpen(false)}>
-            <div 
-              className={styles.selected} 
-              onClick={() => setCurrencyOpen(!isCurrencyOpen)} 
+            onMouseEnter={() => setCurrencyOpen(true)}
+            onMouseLeave={() => setCurrencyOpen(false)}>
+            <div
+              className={styles.selected}
+              onClick={() => setCurrencyOpen(!isCurrencyOpen)}
             >
               {currency}
               <span className={isCurrencyOpen ? styles.arrowUp : styles.arrowDown} />
@@ -194,24 +207,24 @@ const Header: React.FC = () => {
           </div>
         </motion.div>
       </div>
-      
+
       <div className={styles.level2Container}>
         <motion.div
-          className={styles.level2} 
+          className={styles.level2}
           style={{ height: `${level2Height}px`, transition: 'height 0.7s ease' }}
         >
           <div className={styles.leftButtons}>
-            <motion.button 
-              className={styles.button} 
+            <motion.button
+              className={styles.button}
               onClick={handleMenuClick}
             >
               <FeatherIcon icon='menu' size={32} />
               <span>Меню</span>
             </motion.button>
 
-            <motion.button 
-              className={styles.button} 
-              onClick={handleContactClick} 
+            <motion.button
+              className={styles.button}
+              onClick={handleContactClick}
               id={styles.contactbutton}
             >
               <FeatherIcon icon='phone-forwarded' size={32} />
@@ -219,8 +232,8 @@ const Header: React.FC = () => {
             </motion.button>
 
             <Link className={styles.phoneLogo} href="/">
-              <motion.img 
-                src="https://sanywatches.ru/image/cache/catalog/logo_b-2200x800.jpg" 
+              <motion.img
+                src="https://sanywatches.ru/image/cache/catalog/logo_b-2200x800.jpg"
                 alt="Логотип"
                 className={styles.logoImage}
                 style={{ height: `${level2LogoHeight}px`, transition: 'height 0.7s ease' }}
@@ -229,8 +242,8 @@ const Header: React.FC = () => {
           </div>
 
           <Link className={styles.logo} href="/">
-            <motion.img 
-              src="https://sanywatches.ru/image/cache/catalog/logo_b-2200x800.jpg" 
+            <motion.img
+              src="https://sanywatches.ru/image/cache/catalog/logo_b-2200x800.jpg"
               alt="Логотип"
               className={styles.logoImage}
               style={{ height: `${level2LogoHeight}px`, transition: 'height 0.7s ease' }}
@@ -239,15 +252,15 @@ const Header: React.FC = () => {
           </Link>
 
           <div className={styles.rightButtons}>
-            <motion.button 
-              className={styles.button} 
+            <motion.button
+              className={styles.button}
               onClick={handleSearchClick}
             >
               <FeatherIcon icon='search' size={32} />
               <span>Поиск</span>
             </motion.button>
-            <motion.button 
-              className={styles.button} 
+            <motion.button
+              className={styles.button}
               onClick={handleCartClick}
             >
               <FeatherIcon icon='shopping-bag' size={32} />
@@ -274,18 +287,27 @@ const Header: React.FC = () => {
           </motion.ul>
         </nav>
       </motion.div>
-      
 
-      <SideMenu 
-        language={language} 
-        isOpen={isSideMenuOpen} 
-        onClose={closeSideMenu} 
+      <SideMenu
+        language={language}
+        isOpen={isSideMenuOpen}
+        onClose={closeSideMenu}
       />
 
       <CartMenu
-        items={[]} 
-        isOpen={isCartOpen} 
-        onClose={closeCartMenu} 
+        items={[]}
+        isOpen={isCartOpen}
+        onClose={closeCartMenu}
+      />
+
+      <SearchMenu
+        isOpen={isSearchOpen}
+        onClose={closeSearchMenu}
+      />
+
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={closeContactPopup}
       />
     </header>
   );
