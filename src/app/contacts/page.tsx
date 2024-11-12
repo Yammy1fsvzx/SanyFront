@@ -8,6 +8,7 @@ import Map from './components/Map/Map';
 import ContactInfo from './components/ContactInfo/ContactInfo';
 import FAQ from './components/InfoBlock/InfoBlock';
 import Link from 'next/link';
+import { AnimatePresence, motion } from "framer-motion";
 
 const locationData = {
   address: 'Рублево Успенское Шоссе, Жуковка 71',
@@ -24,27 +25,37 @@ const textExpData = [
 
 export default function ContactPage() {
   return (
-    <div className={styles.contentWrapper}>
-      <div className={styles.container}>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key="contacts-content"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className={styles.contentWrapper}>
+          <div className={styles.container}>
 
-        <div className={styles.breadcrumbs}>
-          <span><Link href="/">SanyWatches</Link> <span className={styles.breadcrumbsDash}>/</span> Контакты</span>
+            <div className={styles.breadcrumbs}>
+              <span><Link href="/">SanyWatches</Link> <span className={styles.breadcrumbsDash}>/</span> Контакты</span>
+            </div>
+          
+              <Header title="Контакты Москва" />
+
+              <div className={styles.firstBox}>
+                <CityNavigation />
+                <Map />
+                <ContactInfo locationData={locationData} />
+              </div>
+
+              <div className={styles.textExp}>
+                <Header title="Важная информация" />
+                <FAQ textExpData={textExpData}/>
+              </div>
+          </div>
+
         </div>
-      
-          <Header title="Контакты Москва" />
-
-          <div className={styles.firstBox}>
-            <CityNavigation />
-            <Map />
-            <ContactInfo locationData={locationData} />
-          </div>
-
-          <div className={styles.textExp}>
-            <Header title="Важная информация" />
-            <FAQ textExpData={textExpData}/>
-          </div>
-      </div>
-
-    </div>
+      </motion.div>
+    </AnimatePresence>
   )
 }

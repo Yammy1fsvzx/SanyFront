@@ -5,7 +5,6 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Bell, Coffee, Gift, Headphones } from 'react-feather';
 import styles from './subscribe.module.scss';
-import Image from 'next/image';
 
 import TelegramQR from '../../../assets/globals/TESTQR.png';
 

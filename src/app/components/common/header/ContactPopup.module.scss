@@ -153,6 +153,10 @@
     color: #333; 
     margin-top: 10px;
     cursor: pointer;
+
+    label {
+        text-align: left;
+    }
     
     &:hover {
         color: #111;

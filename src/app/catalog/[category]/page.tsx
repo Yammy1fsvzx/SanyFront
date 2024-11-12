@@ -8,6 +8,7 @@ import ProductCard from './components/ProductCard/ProductCard';
 import styles from './catalog.module.scss';
 import { FilterGroup } from './types';
 import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface Product {
   id: number;
@@ -142,55 +143,66 @@ const CategoryPage = () => {
   };
 
   return (
-    <main className={styles.contentWrapper}>
-      <div className={styles.container}>
-  
-        <div className={styles.breadcrumbs}>
-          <span><Link href="/">SanyWatches</Link> <span className={styles.breadcrumbsDash}>/</span> {categoryHeaders[category as keyof typeof categoryHeaders]}</span>
-        </div>
-  
-        <div className={styles.catalogHeader}>
-          <h1>{categoryHeader}</h1>
-        </div>
-  
-        <div className={styles.catalog}>
-          <FilterSidebar 
-            filters={categoryFilters[category as keyof typeof categoryFilters]} 
-            onReset={handleResetFilters}
-            selectedFilters={selectedFilters}
-            setSelectedFilters={setSelectedFilters}
-          />
-          <div className={styles.main}>
-            <SearchAndSort
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              sortOrder={sortOrder}
-              setSortOrder={setSortOrder}
-            />
-  
-            <div className={styles.catalogLinks}>
-              <div className={styles.LinksContainer}>
-                {otherCategories.map(cat => (
-                  <span key={cat}>
-                    <Link href={`/catalog/${cat}`}>{categoryLinks[cat]}</Link>
-                  </span>
-                ))}
+    
+    <AnimatePresence mode="wait">
+      <motion.div
+        key="catalog-content"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.8 }}
+      >
+        <main className={styles.contentWrapper}>
+            <div className={styles.container}>
+        
+              <div className={styles.breadcrumbs}>
+                <span><Link href="/">SanyWatches</Link> <span className={styles.breadcrumbsDash}>/</span> {categoryHeaders[category as keyof typeof categoryHeaders]}</span>
               </div>
-            </div>
-  
-            <div className={styles.productsGrid}>
-              {sortedProducts.map(product => (
-                <ProductCard 
-                  key={product.id} 
-                  product={{ ...product, price: product.price.toString() }}
+        
+              <div className={styles.catalogHeader}>
+                <h1>{categoryHeader}</h1>
+              </div>
+        
+              <div className={styles.catalog}>
+                <FilterSidebar 
+                  filters={categoryFilters[category as keyof typeof categoryFilters]} 
+                  onReset={handleResetFilters}
+                  selectedFilters={selectedFilters}
+                  setSelectedFilters={setSelectedFilters}
                 />
-              ))}
+                <div className={styles.main}>
+                  <SearchAndSort
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                    sortOrder={sortOrder}
+                    setSortOrder={setSortOrder}
+                  />
+        
+                  <div className={styles.catalogLinks}>
+                    <div className={styles.LinksContainer}>
+                      {otherCategories.map(cat => (
+                        <span key={cat}>
+                          <Link href={`/catalog/${cat}`}>{categoryLinks[cat]}</Link>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+        
+                  <div className={styles.productsGrid}>
+                    {sortedProducts.map(product => (
+                      <ProductCard 
+                        key={product.id} 
+                        product={{ ...product, price: product.price.toString() }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+        
             </div>
-          </div>
-        </div>
-  
-      </div>
-    </main>
+          </main>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
